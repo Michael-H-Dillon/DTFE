@@ -75,6 +75,9 @@ function QuizPage() {
 
   return (
     <Container maxWidth="sm">
+      <Typography variant='h2' color='primary' sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem'}}>
+        Question {questionIndex + 1} / {questionKeys.length}
+      </Typography>
       <Paper sx={{ padding: 4, boxShadow: 3, marginTop: 5 }}>
         {isQuizFinished ? (
           <Box textAlign="center">
