@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
-import { Card, CardContent, Typography, FormControlLabel, Checkbox, CardActions } from '@mui/material';
+import { Card, CardContent, Typography, FormControlLabel, Checkbox, Radio, CardActions, Box } from '@mui/material';
 
 function QuizCard({ questionData, selectedAnswers, onOptionChange }) {
+  const isCheckbox = questionData.type === 'checkbox';
 
   const shuffledOptions = useMemo(() => {
     const shuffled = [...questionData?.options];
@@ -14,11 +15,15 @@ function QuizCard({ questionData, selectedAnswers, onOptionChange }) {
 
   const handleOptionChange = (event) => {
     const value = event.target.value;
-    const updatedAnswers = selectedAnswers.includes(value)
-      ? selectedAnswers.filter((item) => item !== value)
-      : [...selectedAnswers, value];
 
-    onOptionChange(updatedAnswers);
+    if (isCheckbox) {
+      const updatedAnswers = selectedAnswers.includes(value)
+        ? selectedAnswers.filter((item) => item !== value)
+        : [...selectedAnswers, value];
+      onOptionChange(updatedAnswers);
+    } else {
+      onOptionChange([value]);
+    }
   };
 
   return (
@@ -28,19 +33,29 @@ function QuizCard({ questionData, selectedAnswers, onOptionChange }) {
           {questionData?.question}
         </Typography>
         {shuffledOptions.shuffledOptions.map((option, index) => (
-          <FormControlLabel
-            key={shuffledOptions.indices[index]}  // Use the original index as key
-            control={
-              <Checkbox
-                value={shuffledOptions.indices[index].toString()}
-                checked={selectedAnswers.includes(shuffledOptions.indices[index].toString())}
-                onChange={handleOptionChange}
-                sx={{ marginRight: 2 }}
-              />
-            }
-            label={option}
-            sx={{ marginBottom: 1.5 }}
-          />
+          <Box key={shuffledOptions.indices[index]} sx={{ display: 'block', width: '100%' }}>
+            <FormControlLabel
+              control={
+                isCheckbox ? (
+                  <Checkbox
+                    value={shuffledOptions.indices[index].toString()}
+                    checked={selectedAnswers.includes(shuffledOptions.indices[index].toString())}
+                    onChange={handleOptionChange}
+                    sx={{ marginRight: 2 }}
+                  />
+                ) : (
+                  <Radio
+                    value={shuffledOptions.indices[index].toString()}
+                    checked={selectedAnswers.includes(shuffledOptions.indices[index].toString())}
+                    onChange={handleOptionChange}
+                    sx={{ marginRight: 2 }}
+                  />
+                )
+              }
+              label={option}
+              sx={{ marginBottom: 1.5, width: '100%' }}  // Ensures each option spans full width
+            />
+          </Box>
         ))}
       </CardContent>
       <CardActions sx={{ justifyContent: 'flex-end' }} />
