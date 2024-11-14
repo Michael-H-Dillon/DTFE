@@ -6,7 +6,7 @@ function AppRouting() {
     return (
         <Suspense fallback={<>Loading...</>}>
             <Routes>
-                <Route path="/" element={<QuizPage />} />
+                <Route path="*" element={<QuizPage />} />
             </Routes>
         </Suspense>
     )
