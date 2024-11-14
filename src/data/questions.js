@@ -28,9 +28,9 @@ export const QUIZ_DATA = {
     "question_3": {
         "question": "What is a box junction, and what rules apply?",
         "options": [
-            "An area marked with criss-cross yellow lines where you must not enter unless your exit is clear.",
-            "An area marked with criss-cross yellow lines where you can park for a short time.",
-            "An area marked with criss-cross yellow lines where you can wait if you are turning right.",
+            "An area marked with crisscross yellow lines where you must not enter unless your exit is clear.",
+            "An area marked with crisscross yellow lines where you can park for a short time.",
+            "An area marked with crisscross yellow lines where you can wait if you are turning right (providing you are not causing obstruction).",
             "A place for stopping in traffic when there's no other space.",
             "An area for loading and unloading only."
         ],
@@ -281,13 +281,18 @@ export const QUIZ_DATA = {
     "question_24": {
         "question": "Give examples of where you should not park.",
         "options": [
-            "On the brow of a hill, humpback bridge, near a bend, near a junction, obstructing a road sign, at an entrance, opposite another vehicle on a narrow road, at a taxi rank, opposite a single or double continuous white line, in a bus lane, or on a footpath.",
+            "On the brow of a hill.",
+            "On a humpback bridge.",
+            "Near a bend, or junction",
+            "Obstructing a road sign, or an entrance",
+            "Opposite another vehicle on a narrow road or single or double continuous white line",
+            "At a taxi rank, in a bus lane, or on a footpath.",
             "In a driveway or private road.",
             "In a public parking area.",
             "Near a hospital.",
             "Next to a supermarket."
         ],
-        "correct_options": [0],
+        "correct_options": [0, 1, 2, 3, 4, 5],
         "type": "checkbox"
     },
     "question_25": {
@@ -497,13 +502,15 @@ export const QUIZ_DATA = {
     "question_42": {
         "question": "What are the main factors that can affect your driving?",
         "options": [
-            "Alcohol, drugs (prescription and non-prescription), tiredness and fatigue, road rage, and other forms of aggression.",
+            "Alcohol, drugs (prescription and non-prescription)",
+            "Tiredness and fatigue",
+            "Road rage, and other forms of aggression.",
             "Poor vehicle maintenance.",
             "Heavy traffic.",
             "Weather conditions only.",
             "Loud music or conversations."
         ],
-        "correct_options": [0],
+        "correct_options": [0, 1, 2],
         "type": "checkbox"
     },
     "question_43": {
@@ -569,7 +576,7 @@ export const QUIZ_DATA = {
     "question_48": {
         "question": "Where should you not overtake? Give such instances.",
         "options": [
-            "At a bend, the brow of a hill, a humpback bridge, at a continuous white line, at a pedestrian crossing, or anywhere your view is obstructed.",
+            "At locations with limited visibility, such as bends, hills, or bridges.",
             "On wide roads with no traffic.",
             "At traffic lights.",
             "On one-way streets.",
@@ -591,25 +598,23 @@ export const QUIZ_DATA = {
         "type": "radio"
     },
     "question_50": {
-        "question": "What should you do if you have to drive in foggy conditions?",
+        "question": "What colour traffic light follows amber?",
         "options": [
-            "Slow down, use fog lights, and increase the distance from the vehicle in front.",
-            "Increase speed to avoid congestion.",
-            "Use full headlights at all times.",
-            "Only drive if absolutely necessary.",
-            "Turn off all your lights and keep the windows open."
+            "Red",
+            "Green",
+            "Purple",
         ],
         "correct_options": [0],
         "type": "radio"
     },
     "question_51": {
-        "question": "What does a blue circular sign with a white arrow mean?",
+        "question": "What is the nation speed limit in Ireland?",
         "options": [
-            "It indicates a direction of travel and must be followed.",
-            "It shows that traffic is allowed to move in the opposite direction.",
-            "It means no entry into the road.",
-            "It shows that there is a one-way street.",
-            "It indicates a pedestrian-only zone."
+            "100kph",
+            "120kph",
+            "80kph",
+            "60kph",
+            "30kph",
         ],
         "correct_options": [0],
         "type": "radio"
